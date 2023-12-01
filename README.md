@@ -24,6 +24,15 @@ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 Docker Compose version v2.23.3
 
+docker ps
+docker compose run <container name> /bin/bash
+
+Change permissions
+chmod 777 /app/frontend/web/assets
+chmod 777 /app/frontend/runtime
+chmod 777 /app/backend/web/assets
+chmod 777 /app/backend/runtime
+
 
 
   git init
