@@ -50,4 +50,3 @@ phpunit.phar
 /backend/web/robots.txt
 
 /mysql_db
-.nam-keypair.pem

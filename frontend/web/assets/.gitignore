@@ -1,2 +1,6 @@
 *
 !.gitignore
+!flags/
+!js/
+!images/
+!about/
