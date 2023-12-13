@@ -29,7 +29,7 @@ $dataProvider->pagination = false;
             [
                 'label' => 'Category',
                 'attribute' => 'category_id',
-                'value' => 'category.name'
+                'value' => 'category.name',
             ],
             [
                 'label' => 'Topic',
@@ -40,17 +40,18 @@ $dataProvider->pagination = false;
             [
                 'label' => 'Issue',
                 'attribute' => 'body',
-                'format' => 'html'
+                'format' => 'html',
+                'options' => ['style' => 'width: 80%']
             ],
             //'keywords:ntext',
-            [
+            /*[
                 'label' => 'Modified on',
                 'value' => function($row) {
                     return Yii::$app->formatter->format($row->modified, 'date'); 
                 },
                 'filter' => false
-            ],
-            //'modified:datetime',
+            ],*/
+            'modified:datetime',
         ],
     ]); ?>
 

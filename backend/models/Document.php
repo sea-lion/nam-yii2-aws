@@ -22,7 +22,7 @@ use yii\web\UploadedFile;
 class Document extends \yii\db\ActiveRecord
 {
     const SCENARIO_STRICT = 'strict';
-    const DOCUMENTS_ROOT = '/app/frontend/web/documents/';
+    const DOCUMENTS_ROOT = '/app/frontend/web/assets/documents/';
     public $document_file; //in-memory field to hold the uploaded file.
     /**
      * {@inheritdoc}

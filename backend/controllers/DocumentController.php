@@ -161,7 +161,9 @@ class DocumentController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-        $this->delete($model);
+        $path =  Document::DOCUMENTS_ROOT . $model->type . '/';
+        @unlink($path . $model->file_name); // Delete file from /documents
+        $model->delete();
         return $this->redirect(['document/index','DocumentSearch[meeting_id]'=>$model->meeting_id]);
     }
 

@@ -244,4 +244,52 @@ class CountryController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionMapData() {
+		$countries = [];
+		//$countries[] = array('Country','CountryName','CountryID');
+
+		$models = Country::find()->orderBy('name ASC')->all();
+
+		foreach($models as $model) {
+				$country = "";
+				$tooltip = "";
+				//echo "---" . $model->name . ": " . preg_match("/^Cote.+/", $model->name) ;
+				//echo "<br>";
+				switch($model->name){
+						case "Congo":
+					 		$country = "CG";
+					 		$tooltip = "Congo: NAM Member since " . $model->nam;
+					 		break;
+						case "Eswatini":
+							$country = "SZ";
+							$tooltip = "Eswatini NAM Member since " . $model->nam;
+						break;
+						default:
+							if (preg_match("/Ivoire/", $model->name) ) {
+								$country = "Ivory Coast";
+								$tooltip = $model->name . ": NAM Member since " . $model->nam;
+							}
+							elseif (preg_match("/of the Congo/", $model->name) ) {
+								$country = "CD";
+								$tooltip = $model->name . ": NAM Member since " . $model->nam;
+
+							}
+							elseif (preg_match("/of Korea/", $model->name)) {
+								$country = "North Korea";
+								$tooltip = $model->name . ": NAM Member since " . $model->nam;
+							}
+							else {
+								$country = $model->name;
+								$tooltip = $model->active ? "NAM Member since " . $model->nam : "NAM Observer";
+							}
+				}
+				$cid = $model->active ? $model->id *1000 : NULL;
+				$countries[] = [$country,$cid,$tooltip];
+		}
+        $this->layout = 'bare';
+        return $this->render('mapdata', [
+            'countries' => $countries,
+        ]);
+    }
 }

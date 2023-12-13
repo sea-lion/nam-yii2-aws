@@ -39,6 +39,7 @@ AppAsset::register($this);
         ['label' => 'Categories', 'url' => ['/category/index']],
         ['label' => 'Cities', 'url' => ['/city/index']],
         ['label' => 'Countries', 'url' => ['/country/index']],
+        ['label' => 'Organizations', 'url' => ['/organization/index']],
         ['label' => 'Country Profiles', 'url' => ['/country-profile/index']],
         ['label' => 'Document Types', 'url' => ['/doctype/index']],
         ['label' => 'Fora', 'url' => ['/forum/index']],

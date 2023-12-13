@@ -3,6 +3,10 @@ Connect to EC2
 ssh -i "nam-keypair.pem" ec2-user@ec2-34-239-139-92.compute-1.amazonaws.com
 Find what systems is running: cat /etc/os-release
 
+UPLOAD FILE TO EC2
+cd nam-yii2-aws
+scp -i nam-keypair.pem frontend/web/assets/flags/* ec2-user@ec2-34-239-139-92.compute-1.amazonaws.com:/app/frontend/web/assets/flags/
+
 Install docker
 sudo dnf remove docker
 
@@ -29,6 +33,7 @@ docker compose run <container name> /bin/bash
 
 Change permissions
 chmod 777 /app/frontend/web/assets
+chmod 777 /app/frontend/web/documents
 chmod 777 /app/frontend/runtime
 chmod 777 /app/backend/web/assets
 chmod 777 /app/backend/runtime
@@ -42,3 +47,9 @@ chmod 777 /app/backend/runtime
   git remote add origin https://github.com/sea-lion/nam-yii2-aws.git
   git push -u origin main
 
+
+Get directories from Github repository
+cd /appfrontend/web/assets
+wget --no-verbose --no-parent --recursive --level=1 \
+--no-directories --no-host-directories \
+--no-clobber --continue https://github.com/sea-lion/nam-yii2-aws/tree/main/frontend/assets/

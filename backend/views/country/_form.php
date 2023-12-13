@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'active')->textInput() ?>
 
-    <?= $form->field($model, 'nam')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'nam')->textInput(['maxlength' => true])->label('Year joined NAM') ?>
 
     <?= $form->field($model, 'nam_summit_chair')->textInput(['maxlength' => true]) ?>
 

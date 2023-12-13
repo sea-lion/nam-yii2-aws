@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3'
 
 services:
 
@@ -29,13 +29,17 @@ services:
   db:
     image: mariadb
     volumes:
-      - db_data:/var/lib/mysql/data
-      - ./db_data/init_db:/docker-entrypoint-initdb.d
+        - dbdata:/var/lib/mysql
+#        - ./init_db:/docker-entrypoint-initdb.d
+#    volumes_from:
+#      - dbdata
     environment:
       - MYSQL_ROOT_PASSWORD=verysecret
       - MYSQL_DATABASE=420870_nam
       - MYSQL_USER=420870_nam
       - MYSQL_PASSWORD=Q1w2e3r4
+#      - MARIADB_USER=420870_nam
+#      - MARIADB_PASS=Q1w2e3r
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -57,4 +61,4 @@ services:
   #    - POSTGRES_PASSWORD=secret
 
 volumes:
-  db_data:
+    dbdata:

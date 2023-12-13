@@ -78,7 +78,7 @@ class MeetingController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index', 'forum_id' => $model->forum_d]);
+                return $this->redirect(['index', 'forum_id' => $model->forum_id]);
             }
         } else {
             $model->loadDefaultValues();
